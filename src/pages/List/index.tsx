@@ -19,34 +19,34 @@ const List: React.FC = () => {
       </ContentHeader>
       
       <Content>
-        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+        <HistoryFinanceCard tagColor="#E44C4E" 
           title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
 
-        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+        <HistoryFinanceCard tagColor="#E44C4E" 
           title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
 
-        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+        <HistoryFinanceCard tagColor="#E44C4E" 
           title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
 
-        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+        <HistoryFinanceCard tagColor="#E44C4E" 
           title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
 
-        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+        <HistoryFinanceCard tagColor="#E44C4E" 
           title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
 
-        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+        <HistoryFinanceCard tagColor="#E44C4E" 
           title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
 
-        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+        <HistoryFinanceCard tagColor="#E44C4E" 
           title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
 
-        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+        <HistoryFinanceCard tagColor="#E44C4E" 
           title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
 
-        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+        <HistoryFinanceCard tagColor="#E44C4E" 
           title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
 
-        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+        <HistoryFinanceCard tagColor="#E44C4E" 
           title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
       </Content>
     </Container>
