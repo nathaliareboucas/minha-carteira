@@ -1,8 +1,9 @@
 import React from 'react';
 
-import {Container} from './styles';
+import {Container, Content} from './styles';
 import ContentHeader from '../../components/ContentHeader';
 import SelectInput from '../../components/SelectInput';
+import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 
 const List: React.FC = () => {
 
@@ -16,6 +17,38 @@ const List: React.FC = () => {
       <ContentHeader title="Saídas" lineColor="#E44C4E">
         <SelectInput options={options}/>
       </ContentHeader>
+      
+      <Content>
+        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+          title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
+
+        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+          title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
+
+        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+          title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
+
+        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+          title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
+
+        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+          title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
+
+        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+          title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
+
+        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+          title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
+
+        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+          title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
+
+        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+          title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
+
+        <HistoryFinanceCard cardColor="#313862" tagColor="#E44C4E" 
+          title="Conta de luz" subtitle="08/02/2021" amount="R$ 70,00"/>
+      </Content>
     </Container>
   );
 }
