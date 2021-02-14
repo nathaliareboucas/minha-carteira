@@ -36,19 +36,21 @@ const List: React.FC<IRouteParams> = ({match}) => {
   const [yearSelected, setYearSelected] = useState<string>(String(new Date().getFullYear()));
   const [selectedFrequency, setSelectedFrequency] = useState(['recorrente', 'eventual']);
 
-  const {type} = match.params;
+  const movimentType = match.params.type;
 
-  const title = useMemo(() => {
-    return type === 'entry-balance' ? 'Entradas' : 'Saídas';
-  }, [type]);
-
-  const lineColor = useMemo(() => {
-    return type === 'entry-balance' ? '#F7931B' : '#E44C4E'
-  }, [type]);
-
-  const listData = useMemo(() => {
-    return type === 'entry-balance' ? gains : expenses;
-  }, [type]);
+  const pageData = useMemo(() => {
+    return movimentType === 'entry-balance' ?
+      {
+        title: 'Entradas',
+        lineColor: '#F7931B',
+        data: gains
+      } : 
+      {
+        title: 'Saídas',
+        lineColor: '#E44C4E',
+        data: expenses
+      }    
+  }, [movimentType]);
 
   const months = useMemo(() => {
     return listOfMonths.map((month, index) => {
@@ -61,7 +63,7 @@ const List: React.FC<IRouteParams> = ({match}) => {
 
   const years = useMemo(() => {
     let uniqueYears: number[] = [];
-    listData.forEach(item => {
+    pageData.data.forEach(item => {
       const date = new Date(item.date);
       const year = date.getFullYear();
       
@@ -76,7 +78,7 @@ const List: React.FC<IRouteParams> = ({match}) => {
         label: year
       }
     });
-  }, [listData]);
+  }, [pageData]);
 
   const handleFrequencyClick = (frequency: string) => {
       const alreadySelected = selectedFrequency.findIndex(item => item === frequency);
@@ -90,7 +92,7 @@ const List: React.FC<IRouteParams> = ({match}) => {
   }
   
   useEffect(() => {
-    const filteredDate = listData.filter(item => {
+    const filteredDate = pageData.data.filter(item => {
       const date = new Date(item.date);
       const month = String(date.getMonth() + 1);
       const year = String(date.getFullYear());
@@ -111,40 +113,55 @@ const List: React.FC<IRouteParams> = ({match}) => {
       }
     });
     setData(formattedData);
-  }, [listData, monthSelected, yearSelected, selectedFrequency]);
+  }, [pageData, monthSelected, yearSelected, selectedFrequency]);
 
   return(
     <Container>
-      <ContentHeader title={title} lineColor={lineColor}>
-        <SelectInput options={months} 
+      <ContentHeader title={pageData.title} lineColor={pageData.lineColor}>
+        <SelectInput 
+          options={months} 
           onChange={(event) => setMonthSelected(event.target.value)}
-          defaultValue={monthSelected}/>
-        <SelectInput options={years}
+          defaultValue={monthSelected}
+        />
+        <SelectInput 
+          options={years}
           onChange={(event) => setYearSelected(event.target.value)}
-          defaultValue={yearSelected}/>
+          defaultValue={yearSelected}
+        />
       </ContentHeader>
 
       <Filters>
-        <button type="button" 
-        className={`tag-filter tag-filter-recurrent
-        ${selectedFrequency.includes('recorrente') && 'tag-actived'}`}
-        onClick={() => handleFrequencyClick('recorrente')}>
-          Recorrentes
+        <button 
+          type="button" 
+          className={`
+          tag-filter 
+          tag-filter-recurrent
+          ${selectedFrequency.includes('recorrente') && 'tag-actived'}`}
+          onClick={() => handleFrequencyClick('recorrente')}>
+            Recorrentes
         </button>
 
-        <button type="button" 
-        className={`tag-filter tag-filter-eventual 
-        ${selectedFrequency.includes('eventual') && 'tag-actived'}`}
-        onClick={() => handleFrequencyClick('eventual')}>
-          Eventuais
+        <button 
+          type="button" 
+          className={`
+          tag-filter 
+          tag-filter-eventual 
+          ${selectedFrequency.includes('eventual') && 'tag-actived'}`}
+          onClick={() => handleFrequencyClick('eventual')}>
+            Eventuais
         </button>
       </Filters>
       
       <Content>
-        { data.map(itemData => (
-            <HistoryFinanceCard key={itemData.id} tagColor={itemData.tagColor} 
-              title={itemData.description} subtitle={itemData.dateFormatted} 
-              amount={itemData.amountFormatted}/>
+        { 
+          data.map(itemData => (
+            <HistoryFinanceCard 
+              key={itemData.id} 
+              tagColor={itemData.tagColor} 
+              title={itemData.description} 
+              subtitle={itemData.dateFormatted} 
+              amount={itemData.amountFormatted}
+            />
           ))
         }
       </Content>
