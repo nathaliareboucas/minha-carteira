@@ -15,6 +15,7 @@ import listOfMonths from '../../utils/months';
 import happyImg from '../../assets/happy.svg';
 import sadImg from '../../assets/sad.svg';
 import grinningImg from '../../assets/grinning.svg';
+import opsImg from '../../assets/ops.svg';
 
 const Dashboard: React.FC = () => {
 
@@ -101,6 +102,13 @@ const Dashboard: React.FC = () => {
         footerText: 'Verifique suas depesas e tente cortar gastos desnecessários.',
         icon: sadImg
       }
+    } else if (totalGains === 0 && totalExpenses === 0) {
+      return {
+        title: 'Ops!',
+        description: 'Neste mês, não há registros de entradas ou saídas.',
+        footerText: 'Você não fez nenhum registro no mês e ano selecionado.',
+        icon: opsImg
+      } 
     } else if (totalBalance === 0) {
       return {
         title: 'Ufaa!',
@@ -116,7 +124,7 @@ const Dashboard: React.FC = () => {
         icon: happyImg
       }
     }
-  }, [totalBalance]);
+  }, [totalBalance, totalGains, totalExpenses]);
 
   const relationExpensesVersusGains = useMemo(() => {
     const total = totalGains + totalExpenses;
