@@ -13,6 +13,14 @@ export const Container = styled.div`
 	border-radius: 7px;
 
 	display: flex;
+
+	@media(max-width: 1200px) {
+		display: flex;
+		flex-direction: column;
+
+		width: 100%;
+		height: 400px;
+	}
 `;
 
 export const SideLeft = styled.aside`
@@ -20,6 +28,13 @@ export const SideLeft = styled.aside`
 
 	> h2 {
 		margin: 12px 0;
+	}
+
+	@media(max-width: 1200px) {
+		display: flex;
+		flex-direction: column;
+
+		width: 100%;
 	}
 `;
 
@@ -40,6 +55,14 @@ export const LegendContainer = styled.ul`
 
 	::-webkit-scrollbar-track {
 		background-color: ${(props) => props.theme.colors.tertiary};
+	}
+
+	@media(max-width: 1200px) {
+		display: flex;
+		flex-direction: column;
+
+		width: 100%;
+		height: auto;
 	}
 `;
 
@@ -69,4 +92,10 @@ export const SideRight = styled.main`
 	display: flex;
 	flex: 1;
 	justify-content: center;
+
+	@media(max-width: 1200px) {
+		display: flex;
+		flex: 1;
+		width: 100%;	
+	}
 `;
